@@ -20,11 +20,11 @@ def verify_otp():
 
     if username == 'verify' and password == '12345':   
         account_sid = 'ACddb59bbcbe3c3b854afcdb416e3c7a9f'
-        auth_token = '012468c4f54185c7bbe21a1ad458d187'
+        auth_token = '6c32b6630f90b0d610d00c13389c68fe'
         client = Client(account_sid, auth_token)
 
         verification = client.verify \
-            .services('VA88ea3d2f02d61d17e21cdca2c29d402f') \
+            .services('VAacc76f192b390051af76a761e399f524') \
             .verifications \
             .create(to=mobile_number, channel='sms')
 
@@ -43,11 +43,11 @@ def get_otp():
     mobile_number = request.form['number']
 
     account_sid = 'ACddb59bbcbe3c3b854afcdb416e3c7a9f'
-    auth_token = '012468c4f54185c7bbe21a1ad458d187'
+    auth_token = '6c32b6630f90b0d610d00c13389c68fe'
     client = Client(account_sid, auth_token)
                                             
     verification_check = client.verify \
-        .services('VA88ea3d2f02d61d17e21cdca2c29d402f') \
+        .services('VAacc76f192b390051af76a761e399f524') \
         .verification_checks \
         .create(to=mobile_number, code=received_otp)
     print(verification_check.status)
@@ -55,7 +55,7 @@ def get_otp():
     if verification_check.status == "pending":
         return render_template('otp_error.html')    # Write code here
     else:
-        return redirect("https://doc-32nf.onrender.com")
+        return redirect("https://collab-document-qukb.onrender.com")
 
 
 if __name__ == "__main__":
